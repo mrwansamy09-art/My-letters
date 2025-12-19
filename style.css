@@ -1,0 +1,298 @@
+/* إعادة الضبط الأساسي */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* التصميم العام */
+body {
+    font-family: 'Amiri', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #2d3748;
+    line-height: 1.6;
+}
+
+/* الحاوية الرئيسية */
+.container {
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 550px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* الهيدر */
+header {
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: #2d3748;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.highlight {
+    color: #2b6cb0;
+    background: linear-gradient(120deg, #bee3f8 0%, #bee3f8 100%);
+    padding: 0 10px;
+    border-radius: 8px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #4a5568;
+    margin-top: 10px;
+}
+
+/* عرض الحرف */
+.letter-display {
+    font-size: 8rem;
+    color: #2b6cb0;
+    margin: 20px 0;
+    font-family: 'Amiri', serif;
+    text-shadow: 0 5px 15px rgba(43, 108, 176, 0.2);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* حاوية الكانفس */
+.canvas-container {
+    position: relative;
+    margin: 25px auto;
+    width: 500px;
+    height: 500px;
+    max-width: 90vw;
+    max-height: 90vw;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.08),
+        0 10px 30px rgba(0, 0, 0, 0.1);
+    touch-action: none;
+    border: 3px solid #e2e8f0;
+}
+
+.canvas-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.instruction-text {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: bold;
+    color: #2d3748;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.arrow {
+    font-size: 3rem;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* عناصر التحكم */
+.controls {
+    margin-top: 30px;
+}
+
+.progress-container {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.progress-label {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #4a5568;
+    display: flex;
+    justify-content: space-between;
+}
+
+#progressText {
+    font-weight: bold;
+    color: #2b6cb0;
+}
+
+.progress-bar {
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #68d391, #4299e1);
+    border-radius: 6px;
+    transition: width 0.5s ease;
+}
+
+/* رسائل التغذية الراجعة */
+.feedback {
+    background: #f0fff4;
+    border: 2px solid #c6f6d5;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 20px 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #276749;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+/* الأزرار */
+.buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+button {
+    border: none;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+    min-width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4299e1, #2b6cb0);
+    color: white;
+    box-shadow: 0 5px 15px rgba(66, 153, 225, 0.4);
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(66, 153, 225, 0.6);
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background: #f7fafc;
+    color: #4a5568;
+    border: 2px solid #e2e8f0;
+}
+
+.btn-secondary:hover {
+    background: #edf2f7;
+    transform: translateY(-2px);
+}
+
+/* الفوتر */
+footer {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px dashed #e2e8f0;
+}
+
+.hint {
+    background: #fffaf0;
+    padding: 15px;
+    border-radius: 10px;
+    color: #744210;
+    font-size: 1rem;
+}
+
+/* تصميم متجاوب للهواتف */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        border-radius: 20px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .letter-display {
+        font-size: 6rem;
+    }
+    
+    .canvas-container {
+        width: 350px;
+        height: 350px;
+    }
+    
+    button {
+        padding: 14px 24px;
+        font-size: 1.1rem;
+        min-width: 160px;
+    }
+    
+    .instruction-text {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .canvas-container {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .buttons {
+        flex-direction: column;
+    }
+    
+    button {
+        width: 100%;
+    }
+}
