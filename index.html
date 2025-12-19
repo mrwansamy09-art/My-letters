@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعلم كتابة الحروف العربية</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 هيا نكتب <span class="highlight">حرف الألف</span></h1>
+            <p class="subtitle">اسحب إصبعك على المسار المنقط من <strong>الأسفل إلى الأعلى</strong></p>
+        </header>
+
+        <main>
+            <div class="letter-display">أ</div>
+            
+            <div class="canvas-container">
+                <canvas id="tracingCanvas" width="500" height="500">
+                    متصفحك لا يدعم عنصر Canvas. جرب متصفحاً حديثاً.
+                </canvas>
+                <div class="canvas-overlay" id="instructionOverlay">
+                    <div class="instruction-text">✏️ ابدأ من النقطة الحمراء</div>
+                    <div class="arrow">⬆️</div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="progress-container">
+                    <div class="progress-label">التقدم: <span id="progressText">0%</span></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+
+                <div class="feedback" id="feedbackMessage">
+                    جاهز للبدء! المس النقطة الحمراء.
+                </div>
+
+                <div class="buttons">
+                    <button id="resetButton" class="btn-secondary">
+                        🔄 حاول مرة أخرى
+                    </button>
+                    <button id="nextButton" class="btn-primary" disabled>
+                        التالي ➡️
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="hint">
+                💡 <strong>نصيحة:</strong> حاول البقاء داخل المسار المنقط!
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
